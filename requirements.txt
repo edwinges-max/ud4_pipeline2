@@ -1,0 +1,13 @@
+﻿# Dependencias del Pipeline UD4
+
+# YAML parsing
+pyyaml==6.0
+
+# Data processing
+pandas==2.0.3
+
+# Utilities
+python-dotenv==1.0.0
+
+# Logging
+colorlog==6.7.0

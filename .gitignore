@@ -1,0 +1,108 @@
+﻿# ============================================================================
+# .gitignore - Qué NO subir a GitHub
+# ============================================================================
+
+# ============================================================================
+# ARCHIVOS GRANDES (datos crudos)
+# ============================================================================
+# No subir archivos raw grandes
+data/raw/*.fasta
+data/raw/*.fa
+data/raw/*.fastq
+data/raw/*.fq
+data/raw/*.bam
+data/raw/*.vcf
+
+# Pero SÍ subir .gitkeep (para mantener carpeta)
+!data/raw/.gitkeep
+
+# ============================================================================
+# CARPETAS GENERADAS (outputs - se regeneran)
+# ============================================================================
+# Estos archivos se generan al ejecutar, NO necesitan GitHub
+data/processed/*.tsv
+results/*.md
+results/*.json
+logs/*.log
+
+# Pero SÍ subir .gitkeep (para mantener carpetas)
+!data/processed/.gitkeep
+!results/.gitkeep
+!logs/.gitkeep
+
+# ============================================================================
+# DATOS SENSIBLES (privacidad de pacientes)
+# ============================================================================
+# No subir archivos con datos personales
+*.xlsx
+*.xls
+*.csv
+patient_*
+private_*
+secret_*
+credentials.txt
+*.key
+
+# ============================================================================
+# PYTHON (caché)
+# ============================================================================
+__pycache__/
+*.py[cod]
+*\.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ============================================================================
+# ENTORNO VIRTUAL
+# ============================================================================
+venv/
+ENV/
+env/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ============================================================================
+# IDE Y EDITORES
+# ============================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+
+# ============================================================================
+# SISTEMA
+# ============================================================================
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+
+# ============================================================================
+# QUÉ SÍ SUBIR (importante!)
+# ============================================================================
+# Estos están en .gitignore pero los queremos subir:
+# - config.yaml
+# - requirements.txt
+# - README.md
+# - Makefile
+# - src/*.py (todos los scripts)
+# - .gitkeep (en carpetas)

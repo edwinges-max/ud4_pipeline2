@@ -1,0 +1,51 @@
+﻿# ============================================================================
+# CONFIGURACION DEL PIPELINE UD4
+# ============================================================================
+
+pipeline:
+  name: "Sequence Analysis Pipeline UD4"
+  version: "1.0"
+  description: "Pipeline reproducible e idempotente para análisis de secuencias"
+
+# Directorios (rutas relativas portables)
+directories:
+  raw: "data/raw"
+  processed: "data/processed"
+  results: "results"
+  logs: "logs"
+
+# Archivo de entrada
+input:
+  file: "sequences.tsv"
+  columns:
+    - sample_id
+    - sequence
+  encoding: "utf-8"
+
+# Umbrales de filtrado (parametrizables)
+thresholds:
+  min_length: 10        # Longitud mínima de secuencia
+  max_length: 1000      # Longitud máxima de secuencia
+  gc_min: 0.0           # Fracción GC mínima (0.0 = 0%)
+  gc_max: 1.0           # Fracción GC máxima (1.0 = 100%)
+
+# Procesamiento
+processing:
+  calculate_gc: true
+  calculate_length: true
+  trim_whitespace: true
+  remove_empty: true
+  case_to_upper: true
+
+# Reporte
+report:
+  format: "markdown"    # markdown o html
+  include_metrics: true
+  include_filtered_table: true
+  include_validation_report: true
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  timestamp_format: "%Y%m%d_%H%M%S"
